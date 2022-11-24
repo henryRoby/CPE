@@ -11,6 +11,7 @@ exports.creer_des_traitement = function(req, res) {
    if(req.body.constructor === Object && Object.keys(req.body).length === 0){
         res.status(400).send({ error:true, message: 'Please provide all required field' });
     }else{
+      
       Type_traitement.creer_des_traitement(nouveau_traitement, function(err, type_traitement) {
             if (err)
             res.send(err);
@@ -31,12 +32,3 @@ exports.findAll = function(req, res) {
   });
 };
 
-
-// Supprimer une traitement par ID
-// exports.delete = function(req, res) {
-//   Type_traitement.delete( req.params.id, function(err, employee) {
-//     if (err)
-//     res.send(err);
-//     res.json({ error:false, message: 'Employee successfully deleted' });
-//   });
-// };

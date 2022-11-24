@@ -1,6 +1,6 @@
 'use strict';
 
-var connection_bdd = require("../../Config/db.config");
+var dbConn = require('../../config/db.config');
 
 var Cabinet = function(cabinet)
 {
@@ -11,7 +11,7 @@ var Cabinet = function(cabinet)
 // Selectionner tous les cabinet existant dans le base de donnée
 Cabinet.selectionnerTousCabinet = function(resultat_obtenu)
 {
-	connection_bdd.query("SELECT * FROM cabinets", function(err, res){
+	dbConn.query("SELECT * FROM cabinets", function(err, res){
 		if(err)
 		{
 			console.log("erreur de selection: " , err);
@@ -30,7 +30,7 @@ Cabinet.selectionnerTousCabinet = function(resultat_obtenu)
 
 Cabinet.ajouterUnNouveauCabinet = function(nouveau_cabinet, resultat)
 {
-	connection_bdd.query("INSERT INTO cabinets set ?", nouveau_cabinet, function(err, res){
+	dbConn.query("INSERT INTO cabinets set ?", nouveau_cabinet, function(err, res){
 		if (err) 
 		{
 			console.log("erreur d'insertion nouveau cabinet: ", err);
