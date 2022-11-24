@@ -3,7 +3,8 @@ const router = express.Router()
 const typetraitementController = require('../controllers/typetraitement.controller');
 const creerdesnouveaudossierController = require('../controllers/nouveaudossier.controller');
 const Cabinet_dans_controllers = require('../controllers/cabinet.controllers');
-
+const TraitementController = require('../controllers/traitement.controller');
+const UtilisateurController = require('../controllers/utilisateur.controller');
 
 // Creer une nouveau traitement
 router.post('/typetraitement', typetraitementController.creer_des_traitement);
@@ -24,10 +25,12 @@ router.get('/dossier', creerdesnouveaudossierController.findAll);
 
 
 //Creer une nouveau traitement
-// router.post('/traitements', creerdesnouveaudossierController.creer_nouveautraitement);
-router.get('/traitements', creerdesnouveaudossierController.findAll);
+router.get('/traitements', TraitementController.selectionnerToustraitement_controllers);
+router.post('/traitements', TraitementController.ajouterUnNouveauTraitement_controllers);
 
 
+//Creer une nouveau utilisateur
+router.get('/utilisateurs', UtilisateurController.selectionnerTousUtilisateur_controllers);
+router.post('/utilisateurs', UtilisateurController.ajouterUnNouveauUtilisateur_controllers);
 
-//
-module.exports = router
+module.exports = router;
