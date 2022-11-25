@@ -43,4 +43,18 @@ Traitement.creernouveautraitement_controllers = function (newTrai, result) {
     });           
 };
 
+
+Traitement.findByDate = function (date_traitement, result) {
+    dbConn.query("Select * from traitements where date_traitement=?", date_traitement, function (err, res) {
+    if(err) {
+        console.log("manin ato ary za zany leh ");
+      console.log("error: ", err);
+      result(err, null);
+    }
+    else{
+      result(null, res);
+    }
+    });
+};
+
 module.exports= Traitement;
