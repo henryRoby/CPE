@@ -6,6 +6,8 @@ const Cabinet_dans_controllers = require('../controllers/cabinet.controllers');
 const TraitementController = require('../controllers/traitement.controller');
 const UtilisateurController = require('../controllers/utilisateur.controller');
 
+//const modeltraitement = require('../models/traitement.model');
+
 // Creer une nouveau traitement
 router.post('/typetraitement', typetraitementController.creer_des_traitement);
 // Lister toutes les  traitement
@@ -27,6 +29,8 @@ router.get('/dossier', creerdesnouveaudossierController.findAll);
 //Creer une nouveau traitement
 router.get('/traitements', TraitementController.selectionnerToustraitement_controllers);
 router.post('/traitements', TraitementController.ajouterUnNouveauTraitement_controllers);
+router.get('/traitements/:date_traitement', TraitementController.selectionnerToustraitementData_controllers);
+//router.get('/traitements/:date_traitement', modeltraitement.findByDate);
 
 
 //Creer une nouveau utilisateur

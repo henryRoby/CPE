@@ -17,6 +17,20 @@ exports.selectionnerToustraitement_controllers = function(request, response)
 
 
 
+//selection tous les traitements par dates partie controllers
+exports.selectionnerToustraitementData_controllers = function(request, response) 
+{
+	Traitement_controllers.findByDate(request.params.date_traitement, function(err, traitements_mois) {
+		console.log("Controllers en bon etats");
+		if(err)
+		response.send(err);
+		console.log("response selection traitement par dates => " , traitements_mois);
+		response.send(traitements_mois);
+	});
+};
+
+
+
 
 
 //ajout nouveau traitement controllers
